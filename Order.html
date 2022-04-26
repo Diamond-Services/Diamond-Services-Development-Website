@@ -8,18 +8,20 @@
   </head>
   <style>
     body {
-      background-color: #eee;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 46%, rgba(0,212,255,1) 100%);
     }
     input {
       border-top-style: hidden;
       border-right-style: hidden;
       border-left-style: hidden;
       border-bottom-style: groove;
-      background-color: #eee;
+      background-color: #090979;
     }
     
     .no-outline:focus {
       outline: none;
+      color: white;
     }
 
     .sub {
@@ -43,7 +45,9 @@
         top:1px;
     }
 
-
+    .white_text{
+        color: white;
+    }
 
   </style>
   <body>
@@ -61,10 +65,12 @@
     </div>
 
     <center><form>
-        <p>What do you want to order? Enter it bellow.</p>
-        <input id="OrderInfo" type="text" class="no-outline" placeholder="...">
-        <p>What is your email? Please give us a correct email to contact you.</p>
-        <input id="OrderEmail" type="email" class="no-outline" placeholder="...">
+        <div class="white_text">
+            <p>What do you want to order? Enter it bellow.</p>
+            <input id="OrderInfo" type="text" class="no-outline" placeholder="...">
+            <p>What is your email? Please give us a correct email to contact you.</p>
+            <input id="OrderEmail" type="email" class="no-outline" placeholder="...">
+        </div>
     </center></form>
     <center>
     <a onclick="sendMessage()" class="sub">Order!</a>
