@@ -1,0 +1,76 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>DS - Diamond Services</title>
+  </head>
+  <style>
+    body {
+      background-color: #eee;
+    }
+    input {
+      border-top-style: hidden;
+      border-right-style: hidden;
+      border-left-style: hidden;
+      border-bottom-style: groove;
+      background-color: #eee;
+    }
+    
+    .no-outline:focus {
+      outline: none;
+    }
+  </style>
+  <body>
+    <div class="container">
+        <div class="nav-wrapper">
+            <div class="left-side">
+                <div class="nav-link-wrapper">
+                <a href="index.html">Home</a>
+                </div>
+                <div class="nav-link-wrapper nav-link-wrapper active-nav-link">
+                <a href="Order.html">Order Placment</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form>
+        <p>What do you want to order? Enter it bellow.</p>
+        <input id="OrderInfo" type="text" class="no-outline" placeholder="...">
+        <p>What is your email? Please give us a correct email to contact you.</p>
+        <input id="OrderEmail" type="email" class="no-outline" placeholder="...">
+    </form>
+    <button onclick="sendMessage()">Send</button>
+  </body>
+
+  <script>
+    function sendMessage() {
+      const request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/968533375629549639/oIkQ1KiEYaPy0CK4erZlKGSrCQenarUbYQW5jo2rK0zEtX7LPZ6XEP1SJiAG5ArwHorL");
+
+      request.setRequestHeader('Content-type', 'application/json');
+
+      const params = {
+        username: "Testing Webhook",
+        avatar_url: "",
+        content: `<@&968544817472749659>\n**NEW ORDER!**\n\nORDER CONTENT: **${document.getElementById("OrderInfo").value}**\n\nEmail To Contact: **${document.getElementById("OrderEmail").value}**`
+      }
+
+      request.send(JSON.stringify(params));
+    }
+    const portfolioItems = document.querySelectorAll('.portfolio-item-wrapper');
+      
+      portfolioItems.forEach(portfolioItem => {
+        portfolioItem.addEventListener('mouseover', () => {
+          console.log(portfolioItem.childNodes[1].classList)
+          portfolioItem.childNodes[1].classList.add('image-blur');
+        });
+    
+        portfolioItem.addEventListener('mouseout', () => {
+          console.log(portfolioItem.childNodes[1].classList)
+          portfolioItem.childNodes[1].classList.remove('image-blur');
+        });
+      });
+  </script>
+</html>
